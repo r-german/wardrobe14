@@ -1,0 +1,235 @@
+.modal-window{
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s, visibility 0.3s;
+    display: flex;
+    align-items: center;
+    background-color: rgba(26, 26, 26, 0.9);
+    .container{
+        width: 100%;
+        .modal-window__form2-wrapper{
+            max-width: 690px;
+            margin: 0 auto;
+            position: relative;
+            border: 1px solid #9E9E9E;
+            background-color: $white;
+            .form2-wrapper__logo{
+                display: flex;
+                justify-content: center;
+                background-color: #1A1A1A;
+                picture{
+                    padding: 30px 0;
+                    img{width: 174px;}
+                }
+            }
+            .form2-wrapper__form2-text, form{padding: 0 75px;}
+            .form2-wrapper__form2-text{
+                margin-top: 60px;
+                .form2-text__text1, .form2-text__text2{
+                    display: block;
+                    text-align: center;
+                }
+                .form2-text__text1{
+                    font-family: "Montserrat-SemiBold";
+                    font-size: 30px;
+                    line-height: 123%;
+                }
+                .form2-text__text2{
+                    font-size: 20px;
+                    line-height: 120%;
+                    max-width: 500px;
+                    margin: 20px auto 50px auto;
+                }
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 75px;
+                input{
+                    width: 100%;
+                    height: 65px;
+                    padding: 0 25px;
+                    transform: translate3d(0, 0, 0);
+                    border: 1px solid rgba(26, 26, 26, 0.3);
+                }
+                input::placeholder{color: rgba(26, 26, 26, 0.4);}
+                .form__user-name{margin-bottom: 30px;}
+                button{
+                    width: 464px;
+                    margin: 50px 0 20px 0;
+                    color: inherit;
+                }
+                @media (hover: hover) and (pointer: fine){
+                    button:hover{
+                        border-color: #2C2C2C;
+                        background-color: $white;
+                    }
+                }
+                .form__agree{
+                    input{display: none;}
+                    label{
+                        display: block;
+                        font-size: 14px;
+                        line-height: 122%;
+                        margin-left: 24px;
+                        position: relative;
+                        color: #383838;
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            top: 1px;
+                            left: -24px;
+                            width: 14px;
+                            height: 14px;
+                            border: 1px solid rgba(26, 26, 26, 0.3);
+                            border-radius: 3px;
+                            cursor: pointer;
+                        }
+                        &::after{
+                            content: '';
+                            position: absolute;
+                            top: 5px;
+                            left: -21px;
+                            width: 8px;
+                            height: 6px;
+                            opacity: 0;
+                            background: url('../img/form2_checkmark.svg');
+                            transform: translate3d(0, 0, 0);
+                            cursor: pointer;
+                        }
+                    }
+                    input:checked~label{
+                        &::after{opacity: 1;}
+                    }
+                }
+            }
+            .form2-wrapper__cross{
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 42px;
+                height: 42px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                svg{width: 23px;}
+            }
+        }
+    }
+}
+
+.modal-window:not(._visible){
+    opacity: 0;
+    visibility: hidden;
+}
+
+@media(max-width: 1880.9px) and (min-width: 321px){
+    .modal-window{
+        .container{
+            .modal-window__form2-wrapper{
+                .form2-wrapper__logo{
+                    picture{
+                        padding: calc(15px + (30 - 15) * ((100vw - 321px) / (1880 - 321))) 0;
+                        img{width: calc(100px + (174 - 100) * ((100vw - 321px) / (1880 - 321)));}
+                    }
+                }
+                .form2-wrapper__form2-text, form{padding: 0 calc(15px + (75 - 15) * ((100vw - 321px) / (1880 - 321)));}
+                .form2-wrapper__form2-text{
+                    margin-top: calc(35px + (60 - 35) * ((100vw - 321px) / (1880 - 321)));
+                    .form2-text__text1{font-size: calc(22px + (30 - 22) * ((100vw - 321px) / (1880 - 321)));}
+                    .form2-text__text2{
+                        font-size: calc(15px + (20 - 15) * ((100vw - 321px) / (1880 - 321)));
+                        max-width: calc(375px + (500 - 375) * ((100vw - 321px) / (1880 - 321)));
+                        margin: calc(15px + (20 - 15) * ((100vw - 321px) / (1880 - 321))) auto
+                                calc(30px + (50 - 30) * ((100vw - 321px) / (1880 - 321))) auto;
+                    }
+                }
+                form{
+                    margin-bottom: calc(40px + (75 - 40) * ((100vw - 321px) / (1880 - 321)));
+                    input{height: calc(58px + (65 - 58) * ((100vw - 321px) / (1880 - 321)));}
+                    .form__user-name{margin-bottom: calc(20px + (30 - 20) * ((100vw - 321px) / (1880 - 321)));}
+                    button{
+                        font-size: calc(13px + (17 - 13) * ((100vw - 321px) / (1880 - 321)));
+                        margin: calc(35px + (50 - 35) * ((100vw - 321px) / (1880 - 321))) 0
+                                calc(15px + (20 - 15) * ((100vw - 321px) / (1880 - 321))) 0;
+                    }
+                }
+                .form2-wrapper__cross{
+                    top: calc(8px + (10 - 8) * ((100vw - 321px) / (1880 - 321)));
+                    right: calc(8px + (10 - 8) * ((100vw - 321px) / (1880 - 321)));
+                    width: calc(40px + (42 - 40) * ((100vw - 321px) / (1880 - 321)));
+                    height: calc(40px + (42 - 40) * ((100vw - 321px) / (1880 - 321)));
+                    svg{width: calc(20px + (23 - 20) * ((100vw - 321px) / (1880 - 321)));}
+                }
+            }
+        }
+    }
+}
+
+@media(max-height: 800.9px){
+    .modal-window{
+        align-items: flex-start;
+        overflow: auto;
+        .container{
+            .modal-window__form2-wrapper{margin: 40px auto;}
+        }
+    }
+}
+
+@media(max-width: 767.9px){
+    .modal-window{
+        .container{
+            .modal-window__form2-wrapper{
+                form{
+                    button{width: 100%;}
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 320.9px){
+    .modal-window{
+        .container{
+            .modal-window__form2-wrapper{
+                .form2-wrapper__logo{
+                    picture{
+                        padding: 15px 0;
+                        img{width: 100px;}
+                    }
+                }
+                .form2-wrapper__form2-text, form{padding: 0 15px;}
+                .form2-wrapper__form2-text{
+                    margin-top: 35px;
+                    .form2-text__text1{font-size: 22px;}
+                    .form2-text__text2{
+                        font-size: 15px;
+                        margin: 15px auto 30px auto;
+                    }
+                }
+                form{
+                    margin-bottom: 40px;
+                    input{height: 58px;}
+                    .form__user-name{margin-bottom: 20px;}
+                    button{
+                        font-size: 13px;
+                        margin: 35px 0 15px 0;
+                    }
+                }
+                .form2-wrapper__cross{
+                    top: 8px;
+                    right: 8px;
+                    width: 40px;
+                    height: 40px;
+                    svg{width: 20px;}
+                }
+            }
+        }
+    }
+}
